@@ -1,38 +1,313 @@
-.App {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  max-width: 100%;
+}
+
+body::-webkit-scrollbar {
+  width: 0.25rem;
+}
+
+body::-webkit-scrollbar-track {
+  background: black;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: rgb(255, 38, 0);
+}
+
+header {
+  background-image: url("./images/girlfirecar.gif");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 150px;
+  position: relative;
+  width: 100%;
+}
+
+.overlay {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  height: 15vh;
+  right: 0;
+  bottom: 0;
+  padding: 0 !important;
+  margin: 0 !important;
+  background-color: rgba(0, 0, 0, 0.123);
+}
+
+nav {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  /* flex-wrap: wrap; */
+  /* justify-content: space-between; */
+  margin-left: 25px;
+  margin-top: 18px;
+}
+
+nav img {
+  margin-bottom: 10px;
+  padding-bottom: 2px;
+  /* padding-right: 100px; */
+  /* opacity: 0.5; */
+}
+
+nav li {
+  list-style: none;
+  display: inline-block;
+  padding-right: 20px;
+}
+
+li a {
+  padding: 5px;
+  background-color: rgba(255, 255, 255, 0.486);
+  text-decoration: none;
+  color: black;
+}
+
+.cart ion-icon {
+  padding-right: 2px;
+}
+
+.cart a {
+  background-color: royalblue;
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* Artt display designs  */
+
+.container,
+.container-products {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 50px;
+  padding-bottom: 100px;
+}
+
+.image {
+  position: relative;
+  /* overflow: hidden; */
+  margin-top: 30px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.image h3 {
+  margin-bottom: 7px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.addToCart {
+  /* border: 1px solid black; */
+  text-decoration: none;
+  padding: 4px 8px;
+  margin-top: 10px;
+  color: rgb(255, 255, 255);
+  background-color: royalblue;
+  font-weight: bold;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.addToCart:hover {
+  padding: 5px 9px;
+  border: 1px solid black;
+  background-color: seagreen;
+}
+
+/* Cart  */
+
+.container-products {
+  max-width: 650px;
+  justify-content: space-around;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.container-products ion-icon {
+  font-size: 25px;
+  color: rgb(109, 0, 0);
+  margin-left: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.product-header {
+  width: 100%;
+  max-width: 500px;
   display: flex;
-  flex-direction: column;
+  justify-content: flex-start;
+  border-bottom: 4px solid lightgray;
+  margin: 0 auto;
+  padding-bottom: 5px;
+}
+
+.product-title {
+  width: 45%;
+}
+
+.price {
+  width: 15%;
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding-left: 10px;
 }
 
-.App-link {
-  color: #61dafb;
+.quantity {
+  width: 30%;
+  /* border-bottom: 1px solid lightgray; */
+  display: flex;
+  align-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.total {
+  width: 10%;
+  /* border-bottom: 1px solid lightgray; */
+  display: flex;
+  align-items: center;
+}
+
+.product {
+  width: 45%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 0;
+  padding-right: 10px;
+  /* border-bottom: 1px solid lightgray; */
+}
+
+.product ion-icon {
+  cursor: pointer;
+}
+
+.products {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.products img {
+  width: 75px;
+}
+
+.basketTotalContainer {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  padding: 10px 0;
+}
+
+.basketTotalTitle {
+  width: 30%;
+}
+
+.basketTotal {
+  width: 10%;
+}
+
+/* Media Queries  */
+
+@media (max-width: 500px) {
+  body {
+    width: 500px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .sm-hide {
+    display: none;
   }
+
+  .product img {
+    width: 10px;
+  }
+
+  .products,
+  .product-header {
+    justify-content: center;
+  }
+
+  .basketTotalContainer {
+    padding-right: 8%;
+  }
+
+  nav {
+    /* justify-content: row; */
+    justify-content: space-around;
+  }
+
+  header {
+    width: 500px;
+  }
+}
+
+/* footer  */
+
+footer {
+  background-color: rgb(255, 38, 0);
+  text-align: center;
+  padding-bottom: 10px;
+  padding-top: 17px;
+  height: 50px;
+  border-top: 1px solid black;
+}
+
+footer h3 {
+  font-family: "Special Elite";
+  font-size: 14px;
+}
+
+/* REACT TRANSITIONS */
+.fade-appear {
+  opacity: 0;
+  z-index: 1;
+}
+
+.fade-appear.fade-appear-active {
+  opacity: 1;
+  transition: opacity 300ms linear;
+}
+
+/* CLOTHES CONTAINER PAGE  */
+
+.clothes-container h1 {
+  text-align: center;
+}
+
+/* Checkout Styles  */
+
+.checkout-link {
+  margin-top: 100px;
+}
+
+.checkout-container {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  padding: 1em;
+}
+
+/* HOME PAGE  */
+
+.home-page {
+  height: 100vh;
+}
+
+video {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  padding: none;
+  opacity: 0.9;
 }
